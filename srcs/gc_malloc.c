@@ -19,7 +19,7 @@ void	*gc_malloc(size_t size)
 	t_gc_lst	**gc_lst;
 
 	new = NULL;
-	gc_lst = get_gc_lst();
+	gc_lst = _get_gc_lst();
 	tmp = *gc_lst;
 	new = malloc(sizeof(t_gc_lst));
 	if (new == NULL)

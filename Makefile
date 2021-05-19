@@ -1,6 +1,6 @@
 NAME = libgc.a
 
-SRCS = gc_exit.c get_gc_lst.c gc_malloc.c gc_free.c gc_free_all.c gc_utils.c
+SRCS = gc_exit.c gc_malloc.c gc_free.c gc_free_all.c gc_utils.c
 OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
 
 SRCS_DIR = $(SRCS)

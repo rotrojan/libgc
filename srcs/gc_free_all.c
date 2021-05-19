@@ -18,7 +18,7 @@ void	gc_free_all(void)
 	t_gc_lst	*current;
 	t_gc_lst	*next;
 
-	garbage = get_gc_lst();
+	garbage = _get_gc_lst();
 	current = *garbage;
 	while (current)
 	{

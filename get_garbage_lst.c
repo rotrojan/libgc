@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gc_free_all.c                                      :+:      :+:    :+:   */
+/*   get_garbage_lst.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/05 15:04:42 by lucocozz          #+#    #+#             */
-/*   Updated: 2022/12/05 17:08:03 by rotrojan         ###   ########.fr       */
+/*   Created: 2021/05/02 16:18:42 by rotrojan          #+#    #+#             */
+/*   Updated: 2021/05/05 15:08:42 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgc.h"
 
-void	gc_free_all(void)
+t_garbage_lst	**get_garbage_lst(void)
 {
-	t_garbage_lst	**garbage;
-	t_garbage_lst	*current;
-	t_garbage_lst	*next;
+	static t_garbage_lst	*garbage_lst = NULL;
 
-	garbage = _gc_get_garbage_lst();
-	current = *garbage;
-	while (current)
-	{
-		next = current->next;
-		_gc_memdel((void **)&current->ptr);
-		_gc_memdel((void **)&current);
-		current = next;
-	}
+	return (&garbage_lst);
 }

@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 16:35:04 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/05/19 19:15:57 by rotrojan         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:08:30 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,9 @@ void	_gc_putstr_fd(int fd, char const *str)
 	write(fd, str, i);
 }
 
-void	_gc_putendl_fd(int fd, char const *str)
+t_garbage_lst	**_gc_get_garbage_lst(void)
 {
-	_gc_putstr_fd(fd, str);
-	write(fd, "\n", 1);
-}
+	static t_garbage_lst	*garbage_lst = NULL;
 
-t_gc_lst	**_get_gc_lst(void)
-{
-	static t_gc_lst	*gc_lst = NULL;
-
-	return (&gc_lst);
+	return (&garbage_lst);
 }

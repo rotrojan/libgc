@@ -6,7 +6,7 @@
 /*   By: rotrojan <rotrojan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 16:32:29 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/05/19 17:48:44 by rotrojan         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:07:56 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	*gc_malloc(size_t size)
 {
-	t_gc_lst	*tmp;
-	t_gc_lst	*new;
-	t_gc_lst	**gc_lst;
+	t_garbage_lst	*tmp;
+	t_garbage_lst	*new;
+	t_garbage_lst	**garbage_lst;
 
 	new = NULL;
-	gc_lst = _get_gc_lst();
-	tmp = *gc_lst;
-	new = malloc(sizeof(t_gc_lst));
+	garbage_lst = _gc_get_garbage_lst();
+	tmp = *garbage_lst;
+	new = malloc(sizeof(t_garbage_lst) * 1);
 	if (new == NULL)
 		gc_exit(EXIT_FAILURE, "malloc(): failed to allocate memory.\n");
-	_gc_bzero(new, sizeof(t_gc_lst));
+	_gc_bzero(new, sizeof(t_garbage_lst) * 1);
 	new->ptr = malloc(size);
 	if (new->ptr == NULL)
 	{
@@ -33,6 +33,6 @@ void	*gc_malloc(size_t size)
 	}
 	_gc_bzero(new->ptr, size);
 	new->next = tmp;
-	*gc_lst = new;
+	*garbage_lst = new;
 	return (new->ptr);
 }

@@ -12,7 +12,7 @@ MKDIR = mkdir -p
 RM = rm -f
 AR = ar
 
-CFLAGS = -Wall -Wextra -Werror -MMD -I includes
+CFLAGS = -Wall -Wextra -Werror -MMD -I include
 
 vpath %.c srcs 
 

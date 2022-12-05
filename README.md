@@ -9,9 +9,9 @@ void			*gc_malloc(size_t size);
 ```
 Use it as a replacement of your usual malloc.
 ```
-void			gc_free(void *garbage_to_free);
+void			gc_free(void **garbage_to_free);
 ```
-Use it as a replacement of your usual free.
+Use it as a replacement of free: free the pointer pointed by _garbage_to_free_ and set it to NULL.
 ```
 void			gc_free_all(void);
 ```
